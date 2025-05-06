@@ -28,7 +28,6 @@
             overflow-x: hidden;
         }
         
-        /* Navbar */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -71,7 +70,7 @@
         .nav-link:hover::after {
             width: 100%;
         }
-        /
+        
         header {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
@@ -138,7 +137,6 @@
             transform: translateX(-50%);
         }
         
-        /* Projects */
         .project-card {
             background-color: var(--card-bg);
             border-radius: 15px;
@@ -201,7 +199,6 @@
             margin-bottom: 15px;
         }
         
-        /* Contact */
         .contact-form {
             background-color: var(--card-bg);
             padding: 40px;
@@ -336,7 +333,6 @@
             transform: translateY(0);
         }
         
-        /* Responsive */
         @media (max-width: 992px) {
             .header-title {
                 font-size: 2.8rem;
@@ -605,11 +601,38 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h4 class="project-title">Jeu de football 3D IA (Ursina + NEAT)</h4>
+                            <p class="project-description">Simulation de matchs avec IA évolutive via NEAT dans un environnement 3D.</p>
+                            <a href="https://github.com/org421/football_ia_3d" target="_blank" class="project-link">
+                                Voir sur GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="project-title">Détection de phishing</h4>
+                            <p class="project-description">Projet de cybersécurité : analyse manuelle et détection automatisée d’emails frauduleux.</p>
+                            <a href="https://github.com/org421/phishing_detection" target="_blank" class="project-link">
+                                Voir sur GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-5">
         <div class="container">
             <h2 class="section-title">Contact</h2>
@@ -619,7 +642,7 @@
                         <div class="text-center mb-5">
                             <div class="d-flex justify-content-center mb-4">
                                 <div class="social-links">
-                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://www.linkedin.com/in/ozangunes" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
                                     <a href="mailto:ozangunes42150@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
                                 </div>
                             </div>
@@ -640,7 +663,9 @@
                             </div>
                             <div>
                                 <h5 class="mb-1">LinkedIn</h5>
-                                <p class="mb-0"><a href="#" class="text-primary">Ozan Gunes</a></p>
+                                <p class="mb-0">
+                                    <a href="https://www.linkedin.com/in/ozangunes" target="_blank" class="text-primary">linkedin.com/in/ozangunes</a>
+                                </p>
                             </div>
                         </div>
                         <div class="contact-info-item">
@@ -649,7 +674,7 @@
                             </div>
                             <div>
                                 <h5 class="mb-1">Formation</h5>
-                                <p class="mb-0">Master 1 en Informatique</p>
+                                <p class="mb-0">Master 1 Informatique — Données et Systèmes Structurés (UJM)</p>
                             </div>
                         </div>
                         
@@ -677,4 +702,10 @@
                 threshold: 0.1
             });
             
-            animateElements.forEach(element =>
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
