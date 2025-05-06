@@ -1,422 +1,680 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio de Ozan</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-    --primary: #6366F1;
-    --primary-dark: #4F46E5;
-    --secondary: #10B981;
-    --dark: #1E293B;
-    --light: #F8FAFC;
-    --gray: #64748B;
-    --card-bg: #FFFFFF;
-    --transition: all 0.3s ease;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--light);
-    color: var(--dark);
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-/* Navbar */
-.navbar {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar-brand {
-    font-weight: 700;
-    color: var(--primary);
-    font-size: 1.5rem;
-}
-
-.nav-link {
-    font-weight: 500;
-    color: var(--dark);
-    margin: 0 10px;
-    position: relative;
-    transition: var(--transition);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary);
-    bottom: 0;
-    left: 0;
-    transition: var(--transition);
-}
-
-.nav-link:hover {
-    color: var(--primary);
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* Header */
-header {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    padding: 120px 0 100px;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    margin-bottom: 50px;
-}
-
-.header-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.header-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.header-subtitle {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: 30px;
-}
-
-.header-btn {
-    background-color: white;
-    color: var(--primary);
-    border: none;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: var(--transition);
-    text-decoration: none;
-    display: inline-block;
-}
-
-.header-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Sections */
-section {
-    padding: 80px 0;
-}
-
-.section-title {
-    position: relative;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 4px;
-    background-color: var(--secondary);
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Projects */
-.project-card {
-    background-color: var(--card-bg);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.project-card-body {
-    padding: 25px;
-    flex-grow: 1;
-}
-
-.project-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: var(--dark);
-}
-
-.project-description {
-    color: var(--gray);
-    margin-bottom: 20px;
-}
-
-.project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--primary);
-    font-weight: 600;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.project-link:hover {
-    gap: 12px;
-    color: var(--primary-dark);
-}
-
-.project-icon {
-    width: 60px;
-    height: 60px;
-    background-color: var(--primary);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 15px;
-}
-
-/* Contact */
-.contact-form {
-    background-color: var(--card-bg);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.form-control {
-    border: 1px solid #e2e8f0;
-    padding: 15px;
-    border-radius: 10px;
-    transition: var(--transition);
-}
-
-.form-control:focus {
-    border-color: var(--primary);
-    box-shadow: none;
-}
-
-.contact-btn {
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: var(--transition);
-    width: 100%;
-}
-
-.contact-btn:hover {
-    background-color: var(--primary-dark);
-}
-
-.contact-info {
-    background-color: var(--card-bg);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    height: 100%;
-}
-
-.contact-info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-.contact-info-icon {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(99, 102, 241, 0.1);
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .header-title {
-        font-size: 2.8rem;
-    }
-
-    .header-subtitle {
-        font-size: 1.3rem;
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        padding: 100px 0 80px;
-    }
-
-    .header-title {
-        font-size: 2.3rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .contact-info {
-        margin-top: 30px;
-    }
-}
-
-@media (max-width: 576px) {
-    header {
-        padding: 80px 0 60px;
-    }
-
-    .header-title {
-        font-size: 2rem;
-    }
-
-    .header-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-}
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Ozan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-dark: #4F46E5;
+            --secondary: #10B981;
+            --dark: #1E293B;
+            --light: #F8FAFC;
+            --gray: #64748B;
+            --card-bg: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            margin: 0 10px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        /
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 120px 0 100px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 50px;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .header-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        .header-btn {
+            background-color: white;
+            color: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .header-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Projects */
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .project-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .project-link:hover {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+        
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        
+        /* Contact */
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-control {
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .contact-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .contact-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .contact-info {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-links h5 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #CBD5E1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94A3B8;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .header-title {
+                font-size: 2.8rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 100px 0 80px;
+            }
+            
+            .header-title {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-info {
+                margin-top: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header {
+                padding: 80px 0 60px;
+            }
+            
+            .header-title {
+                font-size: 2rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
-<body
-
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="#">Ozan Gunes</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  <header>
-    <div class="container">
-      <h1 class="header-title">Ozan Gunes</h1>
-      <p class="header-subtitle">Développeur passionné | Étudiant en informatique</p>
-    </div>
-  </header>
-
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Mes Projets</h2>
-
-      <h4 class="mb-3">Licence 1</h4>
-      <div class="project-card">
-        <h5 class="project-title">Projet en OCaml</h5>
-        <p class="project-description">Algorithmes de tri sur listes (tri à bulle, tri fusion, etc.)</p>
-        <p><em>Code non disponible</em></p>
-      </div>
-      <h4 class="mb-3 mt-4">Licence 2</h4>
-      <div class="project-card">
-        <h5 class="project-title">Projet en C : Snake</h5>
-        <p class="project-description">Création d'un jeu Snake avec la bibliothèque MLV</p>
-        <p><em>Code non disponible</em></p>
-      </div>
-      <div class="project-card">
-        <h5 class="project-title">Projet K-PPV</h5>
-        <p class="project-description">Recherche des k plus proches voisins sur listes et arbres avec MLV</p>
-        <p><em>Code non disponible</em></p>
-      </div>
-      <h4 class="mb-3 mt-4">Licence 3</h4>
-      <div class="project-card">
-        <h5 class="project-title">WARGAME L3</h5>
-        <a class="project-link" href="https://github.com/org421/WARGAME_L3" target="_blank">Voir sur GitHub</a>
-      </div>
-      <div class="project-card">
-        <h5 class="project-title">Serveur Web Documentaire</h5>
-        <a class="project-link" href="https://github.com/org421/projet_java_web" target="_blank">Voir sur GitHub</a>
-      </div>
-      <div class="project-card">
-        <h5 class="project-title">Programmation Système</h5>
-        <a class="project-link" href="https://github.com/org421/PROG_SYS_L3" target="_blank">Voir sur GitHub</a>
-      </div>
-      <div class="project-card">
-        <h5 class="project-title">Compilation</h5>
-        <a class="project-link" href="https://github.com/org421/compilation" target="_blank">Voir sur GitHub</a>
-      </div>
-      <div class="project-card">
-        <h5 class="project-title">Jeu Serveur Multijoueur</h5>
-        <a class="project-link" href="https://github.com/org421/infectofolieL3" target="_blank">Voir sur GitHub</a>
-      </div>
-      <h4 class="mb-3 mt-4">Master 1</h4>
-      <div class="project-card">
-        <h5 class="project-title">Projet Intégré (MMORPGVORTX)</h5>
-        <a class="project-link" href="https://github.com/org421/projet_integre_master1" target="_blank">Voir sur GitHub</a>
-      </div>
-      <div class="project-card">
-        <h5 class="project-title">Développement Web Avancé (Spring Boot + Vue.js)</h5>
-        <a class="project-link" href="https://github.com/org421/DWAL3" target="_blank">Voir sur GitHub</a>
-      </div>
-      <div class="project-card">
-        <h5 class="project-title">Projet Intelligence Artificielle en Python</h5>
-        <p class="project-description">Apprentissage sur un jeu 3D (En cours de réalisation)</p>
-        <p><em>Code non disponible</em></p>
-      </div>
-    </div>
-  </section>
-  <!-- Contact Section -->
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="contact-info">
-          <div class="mb-4">
-            <h5><i class="fas fa-envelope me-2"></i>Email</h5>
-            <p>ozangunes42150@gmail.com</p>
-          </div>
-          <div class="mb-4">
-            <h5><i class="fab fa-linkedin me-2"></i>LinkedIn</h5>
-            <p><a href="https://www.linkedin.com/in/ozangunes" target="_blank" class="project-link">linkedin.com/in/ozangunes</a></p>
-          </div>
-          <div>
-            <h5><i class="fas fa-graduation-cap me-2"></i>Formation</h5>
-            <p>Master 1 Données et Sytèmes Connectées</p>
-          </div>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">OG</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </nav>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <header>
+        <div class="container">
+            <div class="header-content text-center animate__animated animate__fadeIn">
+                <h1 class="header-title">Ozan Gunes</h1>
+                <p class="header-subtitle">Développeur passionné | Étudiant en informatique</p>
+                <a href="#projects" class="header-btn">Voir mes projets</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 animate-on-scroll">
+                    <img src="/api/placeholder/600/400" alt="Placeholder" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-lg-6 animate-on-scroll">
+                    <h2 class="mb-4">À propos de moi</h2>
+                    <p>Bienvenue sur mon portfolio ! Je suis Ozan Gunes, étudiant passionné par le développement informatique. Actuellement en Master 1, j'ai développé diverses compétences à travers mes projets universitaires et personnels.</p>
+                    <p>Mon parcours m'a permis d'explorer différents langages de programmation et technologies, notamment OCaml, C, Java, Python et le développement web.</p>
+                    <div class="d-flex flex-wrap gap-2 mt-4">
+                        <span class="badge bg-primary py-2 px-3">Java</span>
+                        <span class="badge bg-primary py-2 px-3">Python</span>
+                        <span class="badge bg-primary py-2 px-3">OCaml</span>
+                        <span class="badge bg-primary py-2 px-3">C</span>
+                        <span class="badge bg-primary py-2 px-3">Spring Boot</span>
+                        <span class="badge bg-primary py-2 px-3">Vue.js</span>
+                        <span class="badge bg-primary py-2 px-3">HTML/CSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="bg-light py-5">
+        <div class="container">
+            <h2 class="section-title">Mes Projets</h2>
+            
+            <h3 class="mb-4 text-center animate-on-scroll">Licence 1</h3>
+            <div class="row mb-5">
+                <div class="col-lg-12 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4 class="project-title">Projet en OCaml</h4>
+                            <p class="project-description">Mise en place d'algorithmes de tri sur des listes, comme le tri à bulle, tri fusion, etc.</p>
+                            <p><em>Code non disponible</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="mb-4 text-center animate-on-scroll">Licence 2</h3>
+            <div class="row mb-5">
+                <div class="col-md-6 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h4 class="project-title">Projet en C : Snake</h4>
+                            <p class="project-description">Création d'un jeu Snake avec la bibliothèque MLV.</p>
+                            <p><em>Code non disponible</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h4 class="project-title">Projet K-PPV</h4>
+                            <p class="project-description">Recherche des k points les plus proches sur des listes et arbres avec MLV.</p>
+                            <p><em>Code non disponible</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="mb-4 text-center animate-on-scroll">Licence 3</h3>
+            <div class="row mb-5">
+                <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-chess"></i>
+                            </div>
+                            <h4 class="project-title">WARGAME L3</h4>
+                            <p class="project-description">Jeu de stratégie développé en équipe.</p>
+                            <a href="https://github.com/org421/WARGAME_L3" target="_blank" class="project-link">
+                                Voir sur GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h4 class="project-title">Serveur Web Documentaire</h4>
+                            <p class="project-description">Serveur web pour la gestion de documents.</p>
+                            <a href="https://github.com/org421/projet_java_web" target="_blank" class="project-link">
+                                Voir sur GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-terminal"></i>
+                            </div>
+                            <h4 class="project-title">Programmation Système</h4>
+                            <p class="project-description">Projet de programmation système en C.</p>
+                            <a href="https://github.com/org421/PROG_SYS_L3" target="_blank" class="project-link">
+                                Voir sur GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <h4 class="project-title">Compilation</h4>
+                            <p class="project-description">Projet de compilation et analyse lexicale.</p>
+                            <a href="https://github.com/org421/compilation" target="_blank" class="project-link">
+                                Voir sur GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="project-title">Jeu Serveur Multijoueur</h4>
+                            <p class="project-description">Jeu multijoueur avec architecture client-serveur.</p>
+                            <a href="https://github.com/org421/infectofolieL3" target="_blank" class="project-link">
+                                Voir sur GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="mb-4 text-center animate-on-scroll">Master 1</h3>
+            <div class="row">
+                <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h4 class="project-title">Projet Intégré (MMORPGVORTX)</h4>
+                            <p class="project-description">Développement d'un jeu de type MMORPG.</p>
+                            <a href="https://github.com/org421/projet_integre_master1" target="_blank" class="project-link">
+                                Voir sur GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4 class="project-title">Développement Web Avancé</h4>
+                            <p class="project-description">Application web avec Spring Boot et Vue.js.</p>
+                            <a href="https://github.com/org421/DWAL3" target="_blank" class="project-link">
+                                Voir sur GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <div class="project-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4 class="project-title">Projet Intelligence Artificielle en Python</h4>
+                            <p class="project-description">Apprentissage sur un jeu 3D (En cours de réalisation).</p>
+                            <p><em>Code non disponible</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 animate-on-scroll">
+                    <div class="contact-info">
+                        <div class="text-center mb-5">
+                            <div class="d-flex justify-content-center mb-4">
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="mailto:ozangunes42150@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Email</h5>
+                                <p class="mb-0">ozangunes42150@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">LinkedIn</h5>
+                                <p class="mb-0"><a href="#" class="text-primary">Ozan Gunes</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Formation</h5>
+                                <p class="mb-0">Master 1 en Informatique</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-5">
+                            <p class="mb-0">© 2025 Ozan Gunes — Tous droits réservés</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateElements.forEach(element =>
